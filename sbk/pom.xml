@@ -12,7 +12,7 @@
 	<artifactId>sbk</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sbk</name>
-	<description>learn springboot kafka</description>
+	<description>learn spring-boot kafka</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
