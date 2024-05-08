@@ -1,0 +1,38 @@
+Random UUID
+./bin/windows/kafka-storage.bat random-uuid
+
+./bin/windows/kafka-storage.bat format --cluster-id UUID --config config/kraft/server.properties
+
+Stop
+./bin/windows/kafka-server-stop.bat  ./bin/windows/zookeeper-server-stop.bat
+
+Start Zookeeper
+./bin/zookeeper-server-start.sh ./config/zookeeper.properties
+
+start Kafka
+./bin/windows/kafka-server-start.bat config/kraft/server.properties
+
+List
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+Delete
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --delete --topic
+
+Consumer
+./bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic <>
+
+Producers
+./bin/windows/kafka-console-producer.bat --bootstrap-server localhost:9092 --topic <> --from-beginning
+
+Group
+./bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic <> --group <> --from-beginning
+Hello World
+
+Partition
+	Consumer
+	./bin/windows/kafka-console-producer.bat --bootstrap-server localhost:9092 --topic <> --group <> --property "print.key=true"
+
+	Producer
+
+Des
+./bin/windows/kafka-consumer-groups.bat --bootstrap-server localhost:9092 --all-groups --all-topics --describe
