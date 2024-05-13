@@ -85,7 +85,9 @@ public class ProducerOracleApp {
     }
 
     private static void insertMessage(Connection connection, String topic, String key, String value) throws SQLException {
-        String sql = "INSERT INTO your_table(topic, message_key, message_value) VALUES (?, ?, ?)";
+        String schemaName = "C##DBDASHBOARDKPK"; // Change to your schema name
+        String tableName = "Dummy"; // Change to your table name
+        String sql = "INSERT INTO " + schemaName + "." + tableName + " (topic, message_key, message_value) VALUES (?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, topic);
             statement.setString(2, key);
